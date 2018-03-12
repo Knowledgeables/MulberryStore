@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    resourcePrefix 'permission_'
+    buildTypes {
+        release {
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+
+        }
+    }
+}
+dependencies {
+    compile 'com.yanzhenjie.alertdialog:alertdialog:1.0.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+}
+
